@@ -1,0 +1,86 @@
+/****************forloop method**************/
+function getStr(str){
+  let arraySize = str.length;
+  
+  let reverseStr = '';
+  for(let i = arraySize - 1; i >= 0; i--){
+    reverseStr = reverseStr + str[i];
+  }
+  console.log(reverseStr);
+}
+
+let str = "Chetan";
+// getStr(str);
+getStr(str);
+/*******************End*******************/
+
+
+
+/*************using recursion*****************/
+function reverseString(str) {
+    if (str === "") {
+        return "";
+    } else {
+        return reverseString(str.substr(1)) + str.charAt(0);
+    }
+}
+
+console.log(reverseString("hello")); // "olleh"
+/***************************End**********************/
+
+
+
+/***************recursion explanation*******************/
+
+
+
+  How the Recursion Works
+Let's walk through the function with the example input "hello":
+
+First Call: reverseString("hello")
+
+str = "hello"
+reverseString("ello") + "h"
+Second Call: reverseString("ello")
+
+str = "ello"
+reverseString("llo") + "e"
+Third Call: reverseString("llo")
+
+str = "llo"
+reverseString("lo") + "l"
+Fourth Call: reverseString("lo")
+
+str = "lo"
+reverseString("o") + "l"
+Fifth Call: reverseString("o")
+
+str = "o"
+reverseString("") + "o"
+Base Case: reverseString("")
+
+str = ""
+Returns ""
+Now, the recursive calls start returning their results:
+
+Return from Fifth Call: reverseString("o")
+
+reverseString("") + "o"
+"" + "o" → "o"
+Return from Fourth Call: reverseString("lo")
+
+reverseString("o") + "l"
+"o" + "l" → "ol"
+Return from Third Call: reverseString("llo")
+
+reverseString("lo") + "l"
+"ol" + "l" → "oll"
+Return from Second Call: reverseString("ello")
+
+reverseString("llo") + "e"
+"oll" + "e" → "olle"
+Return from First Call: reverseString("hello")
+
+reverseString("ello") + "h"
+"olle" + "h" → "olleh"
+
